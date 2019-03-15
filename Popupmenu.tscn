@@ -1,4 +1,29 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
 
-[node name="Popupmenu" type="Node2D"]
+[ext_resource path="res://player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://popup.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 190.059, 34.446 )
+
+[node name="MainScene" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 498.607, 347.514 )
+
+[node name="platform" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 338.119, 439.758 )
+
+[node name="Sprite" type="Sprite" parent="platform"]
+position = Vector2( 155.286, 0 )
+scale = Vector2( 5.85269, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
+position = Vector2( 155.543, 2.05337 )
+shape = SubResource( 1 )
+
+[node name="popup" parent="." instance=ExtResource( 3 )]
 
